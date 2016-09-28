@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace classesMetier
+namespace PresSoins
 {
     /// <summary>
     /// 
@@ -31,7 +27,7 @@ namespace classesMetier
         /// Permet d'ajouter une Prestation à une collection de Prestations
         /// </summary>
         /// <param name="unePrestation"></param>
-        public void ajouterPrestation(Prestation unePrestation)
+        public void AjouterPrestation(Prestation unePrestation)
         {
             this.LesPrestations.Add(unePrestation);
         }

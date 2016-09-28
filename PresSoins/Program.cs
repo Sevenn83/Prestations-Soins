@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Xml;
 
 namespace PresSoins
 {
@@ -10,8 +9,10 @@ namespace PresSoins
         {
             const string fileName = "jeudEssai.xml";
             var path = Path.Combine(Environment.CurrentDirectory, @"Data\", fileName);
-            var doc = new XmlDocument();
-            doc.Load(path);
+
+            var dossiers = XmlToObject.XmlToCollectionDossiers(path);
+
+
         }
     }
 }

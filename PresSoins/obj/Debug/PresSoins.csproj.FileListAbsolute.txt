@@ -13,3 +13,6 @@ C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\obj\Debug\PresSoins
 C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\bin\Debug\PresSoins.exe.config
 C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj\Debug\PresSoins.exe
 C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj\Debug\PresSoins.pdb
+C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\bin\Debug\PresSoins.exe
+C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\bin\Debug\PresSoins.pdb
+C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj\Debug\PresSoins.csprojResolveAssemblyReference.cache

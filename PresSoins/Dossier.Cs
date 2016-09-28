@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace classesMetier
+namespace PresSoins
 {
     /// <summary>
     /// 
@@ -16,6 +14,9 @@ namespace classesMetier
         public DateTime DateNaissancePatient { get; }
         public List<Prestation> MesPrestations { get; }
         public Prestation UnePrestation { get; }
+
+        public Dossier() { }
+
         /// <summary>
         /// Constructeur de la classe Dossier
         /// </summary>
@@ -23,7 +24,6 @@ namespace classesMetier
         /// <param name="prenomPatient"></param>
         /// <param name="dateNaissancePatient"></param>
         /// <param name="mesPrestations"></param>
-        public Dossier() { }
         public Dossier(string nomPatient, string prenomPatient, DateTime dateNaissancePatient, List<Prestation> mesPrestations)
         {
             this.NomPatient = nomPatient;
@@ -64,7 +64,7 @@ namespace classesMetier
         /// <param name="uneDate"></param>
         /// <param name="uneHeure"></param>
         /// <param name="unIntervenant"></param>
-        public void ajouterPrestation(string unLibelle, DateTime uneDate, DateTime uneHeure, Intervenant unIntervenant)
+        public void AjouterPrestation(string unLibelle, DateTime uneDate, DateTime uneHeure, Intervenant unIntervenant)
         {
             MesPrestations.Add(new Prestation(unLibelle, uneDate, uneHeure, unIntervenant));
         }
@@ -73,51 +73,31 @@ namespace classesMetier
         /// Permet de retourner le nombre de prestations externe dans la collection MesPrestations
         /// </summary>
         /// <returns></returns>
-        public int getNbPrestationsExternes()
+        public int GetNbPrestationsExternes()
         {
-            int i = 0;
-            foreach (Prestation p in MesPrestations) if (p.L_intervenant is IntervenantExterne) i++;
-            return i;
-
+            return MesPrestations.Count(p => p.L_intervenant is IntervenantExterne);
         }
+
         /// <summary>
         /// Retourne le nombre de prestations
         /// </summary>
         /// <returns></returns>
-        public int getNbPrestations()
+        public int GetNbPrestations()
         {
-            return MesPrestations.Count();
+            return MesPrestations.Count;
         }
         /// <summary>
         /// Retourne le nombre de jours de soins
         /// </summary>
         /// <returns></returns>
-        public int getNbJoursSoins()
+        public int GetNbJoursSoins()
         {
-            List<DateTime> datesTemp = new List<DateTime>();
-            foreach (Prestation Meh in MesPrestations)
-            {
-                if (MesPrestations.Contains(Meh))
-                {
-                    datesTemp.Add(Meh.DateSoin);
-                }
-            }
-            return datesTemp.Count();
-
-            /*
-            int i = 0;
-            var temp = MesPrestations[0];
-            foreach (Prestation p in MesPrestations)
-            {
-                if (p.DateSoin != temp.DateSoin) i++;
-                temp = MesPrestations[i];
-            }
-            return 0;
-            */
+            var datesTemp = (from meh in MesPrestations where MesPrestations.Contains(meh) select meh.DateSoin).ToList();
+            return datesTemp.Count;
         }
         public override string ToString()
         {
-            return NomPatient.ToString() + " " + PrenomPatient.ToString() + " " + DateNaissancePatient.ToShortDateString();
+            return NomPatient + " " + PrenomPatient + " " + DateNaissancePatient.ToShortDateString();
         }
 
     }
