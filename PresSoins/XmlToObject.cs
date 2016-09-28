@@ -67,7 +67,9 @@ namespace PresSoins
                 var libelle = prestationXml.GetElementsByTagName("libelle")[0].InnerText;
                 var dateSoin = ConvertXmlDate(prestationXml.GetElementsByTagName("dateprestation").Item(0));
                 var heureSoin = ConvertXmlTime(prestationXml.GetElementsByTagName("dateprestation").Item(0));
-                var intervenant = new Intervenant("test", "test");
+                var intervenant =
+                    new Intervenant(prestationXml.GetElementsByTagName("intervenant").Item(0).ChildNodes[0].InnerText,
+                        prestationXml.GetElementsByTagName("intervenant").Item(0).ChildNodes[1].InnerText);
 
 
                 prestations.Add(new Prestation(libelle, dateSoin, heureSoin, intervenant));
