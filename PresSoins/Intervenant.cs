@@ -31,5 +31,10 @@ namespace PresSoins
         {
             this.LesPrestations.Add(unePrestation);
         }
+
+        public override string ToString()
+        {
+            return Nom + " " + Prenom;
+        }
     }
 }

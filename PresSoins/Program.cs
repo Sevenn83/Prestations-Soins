@@ -15,8 +15,18 @@ namespace PresSoins
                 foreach (var dossier in dossiers)
                 {
                     Console.WriteLine(dossier.ToString());
-                }
 
+                    if (dossier.MesPrestations.Count > 0)
+                        Console.WriteLine("Liste des prestations :");
+                    foreach (var prestation in dossier.MesPrestations)
+                    {
+                        Console.WriteLine(prestation.ToString());
+                        Console.WriteLine("Intervenant :");
+                        Console.WriteLine(prestation.L_intervenant.ToString());
+                    }
+                    Console.WriteLine("\n ------------------------------- \n");
+                }
+                Console.WriteLine("Appuyez sur une touche pour continuer ...");
                 Console.ReadKey();
             }
             catch (Exception e)

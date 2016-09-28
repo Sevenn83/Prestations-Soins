@@ -5,46 +5,44 @@ using System.Linq;
 namespace PresSoins
 {
     /// <summary>
-    /// 
     /// </summary>
     public class Dossier
     {
-        public string NomPatient { get; }
-        public string PrenomPatient { get; }
-        public DateTime DateNaissancePatient { get; }
-        public List<Prestation> MesPrestations { get; }
-        public Prestation UnePrestation { get; }
-
-        public Dossier() { }
+        public Dossier()
+        {
+        }
 
         /// <summary>
-        /// Constructeur de la classe Dossier
+        ///     Constructeur de la classe Dossier
         /// </summary>
         /// <param name="nomPatient"></param>
         /// <param name="prenomPatient"></param>
         /// <param name="dateNaissancePatient"></param>
         /// <param name="mesPrestations"></param>
-        public Dossier(string nomPatient, string prenomPatient, DateTime dateNaissancePatient, List<Prestation> mesPrestations)
+        public Dossier(string nomPatient, string prenomPatient, DateTime dateNaissancePatient,
+            List<Prestation> mesPrestations)
         {
-            this.NomPatient = nomPatient;
-            this.PrenomPatient = prenomPatient;
-            this.DateNaissancePatient = dateNaissancePatient;
-            this.MesPrestations = mesPrestations;
+            NomPatient = nomPatient;
+            PrenomPatient = prenomPatient;
+            DateNaissancePatient = dateNaissancePatient;
+            MesPrestations = mesPrestations;
         }
+
         /// <summary>
-        /// Constructeur de la classe Dossier sans Collection de Prestations
+        ///     Constructeur de la classe Dossier sans Collection de Prestations
         /// </summary>
         /// <param name="nomPatient"></param>
         /// <param name="prenomPatient"></param>
         /// <param name="dateNaissancePatient"></param>
         public Dossier(string nomPatient, string prenomPatient, DateTime dateNaissancePatient)
         {
-            this.NomPatient = nomPatient;
-            this.PrenomPatient = prenomPatient;
-            this.DateNaissancePatient = dateNaissancePatient;
+            NomPatient = nomPatient;
+            PrenomPatient = prenomPatient;
+            DateNaissancePatient = dateNaissancePatient;
         }
+
         /// <summary>
-        /// Constructeur de la classe Dossier avec une seule Prestation
+        ///     Constructeur de la classe Dossier avec une seule Prestation
         /// </summary>
         /// <param name="nomPatient"></param>
         /// <param name="prenomPatient"></param>
@@ -52,13 +50,20 @@ namespace PresSoins
         /// <param name="unePrestation"></param>
         public Dossier(string nomPatient, string prenomPatient, DateTime dateNaissancePatient, Prestation unePrestation)
         {
-            this.NomPatient = nomPatient;
-            this.PrenomPatient = prenomPatient;
-            this.DateNaissancePatient = dateNaissancePatient;
-            this.UnePrestation = unePrestation;
+            NomPatient = nomPatient;
+            PrenomPatient = prenomPatient;
+            DateNaissancePatient = dateNaissancePatient;
+            UnePrestation = unePrestation;
         }
+
+        public string NomPatient { get; }
+        public string PrenomPatient { get; }
+        public DateTime DateNaissancePatient { get; }
+        public List<Prestation> MesPrestations { get; }
+        public Prestation UnePrestation { get; }
+
         /// <summary>
-        /// Permet d'ajouter une Prestation à une collection de Prestations
+        ///     Permet d'ajouter une Prestation à une collection de Prestations
         /// </summary>
         /// <param name="unLibelle"></param>
         /// <param name="uneDate"></param>
@@ -70,7 +75,7 @@ namespace PresSoins
         }
 
         /// <summary>
-        /// Permet de retourner le nombre de prestations externe dans la collection MesPrestations
+        ///     Permet de retourner le nombre de prestations externe dans la collection MesPrestations
         /// </summary>
         /// <returns></returns>
         public int GetNbPrestationsExternes()
@@ -79,15 +84,16 @@ namespace PresSoins
         }
 
         /// <summary>
-        /// Retourne le nombre de prestations
+        ///     Retourne le nombre de prestations
         /// </summary>
         /// <returns></returns>
         public int GetNbPrestations()
         {
             return MesPrestations.Count;
         }
+
         /// <summary>
-        /// Retourne le nombre de jours de soins
+        ///     Retourne le nombre de jours de soins
         /// </summary>
         /// <returns></returns>
         public int GetNbJoursSoins()
@@ -95,10 +101,10 @@ namespace PresSoins
             var datesTemp = (from meh in MesPrestations where MesPrestations.Contains(meh) select meh.DateSoin).ToList();
             return datesTemp.Count;
         }
+
         public override string ToString()
         {
             return NomPatient + " " + PrenomPatient + " " + DateNaissancePatient.ToShortDateString();
         }
-
     }
 }
