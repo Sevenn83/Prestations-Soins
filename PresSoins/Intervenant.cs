@@ -17,11 +17,11 @@ namespace PresSoins
         /// <param name="nom"></param>
         /// <param name="prenom"></param>
         /// <param name="lesPrestations"></param>
-        public Intervenant(string nom, string prenom, List<Prestation>lesPrestations)
+        public Intervenant(string nom, string prenom)
         {
             this.Nom = nom;
             this.Prenom = prenom;
-            this.LesPrestations = lesPrestations;
+            //this.LesPrestations = lesPrestations;
         }
         /// <summary>
         /// Permet d'ajouter une Prestation à une collection de Prestations

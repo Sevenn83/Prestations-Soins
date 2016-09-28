@@ -25,13 +25,13 @@ namespace PresSoins
             for (var i = 0; i < dossierNodeList.Count; i++)
             {
                 // Génération d'un xml par dossier, exploitable.
-                var dossier = new XmlDocument();
-                dossier.LoadXml("<?xml version=\"1.0\" encoding=\"UTF - 8\"?><root>" + dossierNodeList.Item(i).InnerXml + "</root>");
+                var dossierXml = new XmlDocument();
+                dossierXml.LoadXml("<?xml version=\"1.0\" encoding=\"UTF - 8\"?><root>" + dossierNodeList.Item(i).InnerXml + "</root>");
 
-                var nom = dossier.GetElementsByTagName("nom")[0].InnerText;
-                var prenom = dossier.GetElementsByTagName("prenom")[0].InnerText;
-                var dateNaissancePatient = ConvertXmlDateTime(dossier.GetElementsByTagName("datenaissance").Item(0));
-                var prestations = new List<Prestation>();
+                var nom = dossierXml.GetElementsByTagName("nom")[0].InnerText;
+                var prenom = dossierXml.GetElementsByTagName("prenom")[0].InnerText;
+                var dateNaissancePatient = ConvertXmlDate(dossierXml.GetElementsByTagName("datenaissance").Item(0));
+                var prestations = ConvertPrestations(dossierXml.GetElementsByTagName("prestations"));
 
                 dossiers.Add(new Dossier(nom, prenom, dateNaissancePatient, prestations));
             }
@@ -40,11 +40,37 @@ namespace PresSoins
             return dossiers;
         }
 
-        private static DateTime ConvertXmlDateTime(XmlNode dateNaissanceNode)
+        private static DateTime ConvertXmlDate(XmlNode dateNaissanceNode)
         {
-            Console.WriteLine();
             return new DateTime(Convert.ToInt32(dateNaissanceNode.ChildNodes[0].InnerText),
                 Convert.ToInt32(dateNaissanceNode.ChildNodes[1].InnerText), Convert.ToInt32(dateNaissanceNode.ChildNodes[2].InnerText));
+        }
+
+        private static DateTime ConvertXmlTime(XmlNode heure)
+        {
+            //todo : Débug cette fonction.
+            return new DateTime(0, 0, 0, Convert.ToInt32(heure.ChildNodes[3].InnerText), Convert.ToInt32(heure.ChildNodes[4].InnerText), 0);
+        }
+
+        private static List<Prestation> ConvertPrestations(XmlNodeList presNodeList)
+        {
+            var prestations = new List<Prestation>();
+            for (var i = 0; i < presNodeList.Count; i++)
+            {
+                var prestationXml = new XmlDocument();
+                prestationXml.LoadXml("<?xml version=\"1.0\" encoding=\"UTF - 8\"?><root>" + presNodeList.Item(i).InnerXml + "</root>");
+
+                var libelle = prestationXml.GetElementsByTagName("libelle")[0].InnerText;
+                var dateSoin = ConvertXmlDate(prestationXml.GetElementsByTagName("dateprestation").Item(0));
+                var heureSoin = ConvertXmlTime();
+                var intervenant = new Intervenant("test", "test");
+
+
+                prestations.Add(new Prestation(libelle, dateSoin, heureSoin, intervenant));
+            }
+                
+
+            return prestations;
         }
 
     }

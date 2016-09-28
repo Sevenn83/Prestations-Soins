@@ -19,7 +19,7 @@ namespace PresSoins
         /// <param name="dateSoin"></param>
         /// <param name="heureSoin"></param>
         /// <param name="intervenant"></param>
-        public Prestation(string libelle, DateTime dateSoin,DateTime heureSoin, Intervenant intervenant )
+        public Prestation(string libelle, DateTime dateSoin, DateTime heureSoin, Intervenant intervenant )
         {
             this.Libelle = libelle;
             this.DateSoin = dateSoin;
