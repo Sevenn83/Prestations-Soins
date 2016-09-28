@@ -12,6 +12,11 @@ namespace PresSoins
 
             var dossiers = XmlToObject.XmlToCollectionDossiers(path);
 
+            foreach (var dossier in dossiers)
+            {
+                Console.WriteLine(dossier.ToString());
+            }
+
             Console.ReadKey();
         }
     }
