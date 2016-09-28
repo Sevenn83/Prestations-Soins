@@ -5,7 +5,7 @@
         <prenom>Jean</prenom>
         <datenaissance>
             <yyyy>1980</yyyy>
-            <mm>12</mm>
+            <mm>15</mm>
             <dd>3</dd>
         </datenaissance>
         <prestations>
@@ -13,7 +13,7 @@
                 <libelle>Libelle Prestation 1</libelle>
                 <dateprestation>
                     <yyyy>2015</yyyy>
-                    <mm>9</mm>
+                    <mm>12</mm>
                     <dd>10</dd>
                     <hh>12</hh>
                     <mi>15</mi>                    

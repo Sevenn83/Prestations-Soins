@@ -1,7 +1,12 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Text;
 using System.Xml;
+using System.Xml.Schema;
+using PresSoins.Properties;
 
 namespace PresSoins
 {
@@ -16,9 +21,16 @@ namespace PresSoins
         {
             // Création de la collection retournée
             var dossiers = new Collection<Dossier>();
+
             // Chargement du XML
             var doc = new XmlDocument();
             doc.Load(pathToXml);
+
+            // Validation du XML
+            var schema = getSchema();
+            doc.Schemas.Add(schema);
+            doc.Validate(settings_ValidationEventHandler);
+
 
             var dossierNodeList = doc.GetElementsByTagName("dossier");
 
@@ -77,6 +89,32 @@ namespace PresSoins
 
 
             return prestations;
+        }
+
+        private static void settings_ValidationEventHandler(object sender, ValidationEventArgs e)
+        {
+            if (e.Severity == XmlSeverityType.Warning)
+            {
+                Console.WriteLine("The following validation warning occurred: " + e.Message);
+            }
+            else if (e.Severity == XmlSeverityType.Error)
+            {
+                Console.WriteLine("The following critical validation errors occurred: " + e.Message);
+                throw new System.Exception("Xml non valide");
+            }
+        }
+
+        private static XmlSchema getSchema()
+        {
+            var xs = new XmlSchemaSet();
+
+            var xmlSchemaString = Resources.schema_jeu_essai;
+            var byteArray = Encoding.UTF8.GetBytes(xmlSchemaString);
+            var stream = new MemoryStream(byteArray);
+            var reader = XmlReader.Create(stream);
+            var schema = xs.Add(null, reader);
+
+            return schema;
         }
     }
 }

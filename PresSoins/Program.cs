@@ -7,17 +7,24 @@ namespace PresSoins
     {
         private static void Main()
         {
-            const string fileName = "jeudEssai.xml";
-            var path = Path.Combine(Environment.CurrentDirectory, @"Data\", fileName);
-
-            var dossiers = XmlToObject.XmlToCollectionDossiers(path);
-
-            foreach (var dossier in dossiers)
+            try
             {
-                Console.WriteLine(dossier.ToString());
-            }
+                const string fileName = "jeudEssai.xml";
+                var path = Path.Combine(Environment.CurrentDirectory, @"Data\", fileName);
+                var dossiers = XmlToObject.XmlToCollectionDossiers(path);
+                foreach (var dossier in dossiers)
+                {
+                    Console.WriteLine(dossier.ToString());
+                }
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Appuyez sur une touche pour continuer ...");
+                Console.ReadKey();
+            }
         }
     }
 }
