@@ -1,138 +1,113 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<root>
-  <Dossiers>
-    <Dossier>
-      <nomPatient>Raimon</nomPatient>
-      <PrenomPatient>Dylan</PrenomPatient>
-      <DateNaissancePatient>
-        <Jour>04</Jour>
-        <Mois>04</Mois>
-        <Annee>2000</Annee>
-      </DateNaissancePatient>
-      <Prestations>
-        <Prestation>
-          <Libelle></Libelle>
-          <DateSoin></DateSoin>
-          <HeureSoin></HeureSoin>
-          <Intervenants>
-            <Intervenant>
-              <Nom></Nom>
-              <Prenom></Prenom>
-            </Intervenant>     
-          </Intervenants>
-        </Prestation>
-      </Prestations>
-    </Dossier>
-    <Dossier>
-      <nomPatient>Botte</nomPatient>
-      <PrenomPatient>Valentin</PrenomPatient>
-      <DateNaissancePatient>
-        <Jour>04</Jour>
-        <Mois>05</Mois>
-        <Annee>1992</Annee>
-      </DateNaissancePatient>
-      <Prestations>
-        <Prestation>
-          <Libelle>LibPrestationUne</Libelle>
-          <DateSoin>
-            <Jour>04</Jour>
-            <Mois>04</Mois>
-            <Annee>2000</Annee>
-          </DateSoin>
-          <HeureSoin>
-            <Heure>1</Heure>
-            <Minute>15</Minute>
-            <Seconde>01</Seconde>
-          </HeureSoin>
-          <Intervenants>
-            <Intervenant id ="0">
-              <Nom>Pascal</Nom>
-              <Prenom>Jean</Prenom>
-            </Intervenant>     
-          </Intervenants>
-        </Prestation>
-      </Prestations>
-    </Dossier>
-    <Dossier>
-      <nomPatient>Cotte</nomPatient>
-      <PrenomPatient>Calentin</PrenomPatient>
-      <DateNaissancePatient>
-        <Jour>04</Jour>
-        <Mois>04</Mois>
-        <Annee>2000</Annee>        
-      </DateNaissancePatient>
-      <Prestations>
-        <Prestation>
-          <Libelle>libellePrestationMeh</Libelle>
-          <DateSoin>
-            <Jour>04</Jour>
-            <Mois>04</Mois>
-            <Annee>2000</Annee>
-          </DateSoin>
-          <HeureSoin>
-            <Heure>1</Heure>
-            <Minute>15</Minute>
-            <Seconde>01</Seconde>
-          </HeureSoin>
-          <Intervenants>
-            <Intervenant id ="1">
-              <Nom>Pascalette</Nom>
-              <Prenom>Jeannote</Prenom>
-            </Intervenant>  
-            <Intervenant id ="2">
-              <Nom>Pascalux</Nom>
-              <Prenom>Jeanus</Prenom>
-            </Intervenant>
-          </Intervenants>
-        </Prestation>
-        <Prestation>
-          <Libelle>PrestationDeuxieme</Libelle>
-          <DateSoin>
-            <Jour>01</Jour>
-            <Mois>01</Mois>
-            <Annee>2001</Annee>
-          </DateSoin>
-          <HeureSoin>
-            <Heure>1</Heure>
-            <Minute>15</Minute>
-            <Seconde>01</Seconde>
-          </HeureSoin>
-          <Intervenants>
-            <Intervenant id ="3">
-              <Nom>NomBerg</Nom>
-              <Prenom>Prenomus</Prenom>
-            </Intervenant>  
-            <Intervenant id ="4">
-              <Nom>Pascalux</Nom>
-              <Prenom>Jeanus</Prenom>
-            </Intervenant>
-          </Intervenants>
-        </Prestation>  
-      </Prestations>
-    </Dossier>
-  </Dossiers>
-  <IntervenantExternes>
-    <IntervenantExterne>
-      <IdIntervenant>3</IdIntervenant>
-      <Specialite>Ecriture intensive de Json</Specialite>
-      <Addresse>
-        <NumRue>15</NumRue>
-        <NomRue>Rue du Jizone</NomRue>
-        <Ville>Jizonne</Ville>
-        <Cp>12555</Cp>
-      </Addresse>
-      <Tel>0625211144</Tel>
-    </IntervenantExterne>
-    <IntervenantExterne>
-      <IdIntervenant>4</IdIntervenant>
-      <Specialite>Ecriture intensive d'XML</Specialite>
-      <Addresse>
-        <NumRue>15</NumRue>
-        <NomRue>Rue du xAimeElle</NomRue>
-        <Ville>IksAimeElle</Ville>
-        <Cp>12555</Cp>
-      </Addresse>
-      <Tel>0625211144</Tel>
-    </IntervenantExterne>    
-  </IntervenantExternes>
-</root>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dossiers>
+    <dossier>
+        <nom>Robert</nom>
+        <prenom>Jean</prenom>
+        <datenaissance>
+            <yyyy>1980</yyyy>
+            <mm>12</mm>
+            <dd>3</dd>
+        </datenaissance>
+        <prestations>
+            <prestation>
+                <libelle>Libelle Prestation 1</libelle>
+                <dateprestation>
+                    <yyyy>2015</yyyy>
+                    <mm>9</mm>
+                    <dd>10</dd>
+                    <hh>12</hh>
+                    <mi>15</mi>                    
+                </dateprestation>
+                <intervenant>
+                    <nomintervenant>Dr Intervun</nomintervenant>
+                    <prenomintervenant>Jean</prenomintervenant>        
+                </intervenant>
+            </prestation>
+            <prestation>
+                <libelle>Libelle Prestation 3</libelle>
+                <dateprestation>
+                    <yyyy>2015</yyyy>
+                    <mm>9</mm>
+                    <dd>1</dd>
+                    <hh>14</hh>
+                    <mi>00</mi>                    
+                </dateprestation>
+                <intervenant>
+                    <nomintervenant>Dr Intervdeux</nomintervenant>
+                    <prenomintervenant>Martine</prenomintervenant>
+                    <specialite>cardiologue</specialite>
+                    <adresse>Boulevard de Starsbourg 83000 Toulon</adresse>
+                    <tel>04 94 94 94 94</tel>
+                </intervenant>
+            </prestation>
+             <prestation>
+                <libelle>Libelle Prestation 15</libelle>
+                <dateprestation>
+                    <yyyy>2015</yyyy>
+                    <mm>9</mm>
+                    <dd>1</dd>
+                    <hh>14</hh>
+                    <mi>00</mi>                    
+                </dateprestation>
+                <intervenant>
+                    <nomintervenant>Dr Intervtrois</nomintervenant>
+                    <prenomintervenant>Michel</prenomintervenant>
+                    <specialite>radiologue</specialite>
+                    <adresse>Avenue de la république 83000 Toulon</adresse>
+                    <tel>04 94 90 90 90</tel>
+                </intervenant>
+            </prestation>
+             <prestation>
+                <libelle>Libelle Prestation 17</libelle>
+                <dateprestation>
+                    <yyyy>2015</yyyy>
+                    <mm>9</mm>
+                    <dd>1</dd>
+                    <hh>14</hh>
+                    <mi>00</mi>                    
+                </dateprestation>
+                <intervenant>
+                    <nomintervenant>Dr Intervtrois</nomintervenant>
+                    <prenomintervenant>Michel</prenomintervenant>
+                    <specialite>radiologue</specialite>
+                    <adresse>Avenue de la république 83000 Toulon</adresse>
+                    <tel>04 94 90 90 90</tel>
+                </intervenant>
+            </prestation>
+        </prestations>
+    </dossier>
+    <dossier>
+        <nom>Blanc</nom>
+        <prenom>Sophie</prenom>
+        <datenaissance>
+            <yyyy>1995</yyyy>
+            <mm>9</mm>
+            <dd>14</dd>
+        </datenaissance>
+    </dossier>
+	<dossier>
+        <nom>Robert</nom>
+        <prenom>Jean</prenom>
+        <datenaissance>
+            <yyyy>1980</yyyy>
+            <mm>12</mm>
+            <dd>3</dd>
+        </datenaissance>
+        <prestations>
+            <prestation>
+                <libelle>Libelle Prestation Meh</libelle>
+                <dateprestation>
+                    <yyyy>2015</yyyy>
+                    <mm>9</mm>
+                    <dd>10</dd>
+                    <hh>12</hh>
+                    <mi>15</mi>                    
+                </dateprestation>
+                <intervenant>
+                    <nomintervenant>Dr Prestationnet</nomintervenant>
+                    <prenomintervenant>Jeannot</prenomintervenant>        
+                </intervenant>
+            </prestation>
+        </prestations>
+    </dossier>
+</dossiers>

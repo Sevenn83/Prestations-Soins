@@ -12,7 +12,7 @@ namespace PresSoins
 
             var dossiers = XmlToObject.XmlToCollectionDossiers(path);
 
-
+            Console.ReadKey();
         }
     }
 }
