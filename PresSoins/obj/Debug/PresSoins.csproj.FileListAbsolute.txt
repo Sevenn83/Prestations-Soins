@@ -1,0 +1,12 @@
+c:\users\molinari.d\documents\visual studio 2015\Projects\PresSoins\PresSoins\bin\Debug\PresSoins.exe.config
+c:\users\molinari.d\documents\visual studio 2015\Projects\PresSoins\PresSoins\bin\Debug\PresSoins.exe
+c:\users\molinari.d\documents\visual studio 2015\Projects\PresSoins\PresSoins\bin\Debug\PresSoins.pdb
+c:\users\molinari.d\documents\visual studio 2015\Projects\PresSoins\PresSoins\obj\Debug\PresSoins.csprojResolveAssemblyReference.cache
+c:\users\molinari.d\documents\visual studio 2015\Projects\PresSoins\PresSoins\obj\Debug\PresSoins.exe
+c:\users\molinari.d\documents\visual studio 2015\Projects\PresSoins\PresSoins\obj\Debug\PresSoins.pdb
+C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\bin\Debug\PresSoins.exe.config
+C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\bin\Debug\PresSoins.exe
+C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\bin\Debug\PresSoins.pdb
+C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\obj\Debug\PresSoins.csprojResolveAssemblyReference.cache
+C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\obj\Debug\PresSoins.exe
+C:\Users\davv\Documents\GitHub\Presentations-Soins\PresSoins\obj\Debug\PresSoins.pdb
