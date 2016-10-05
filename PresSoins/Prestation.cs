@@ -19,5 +19,8 @@ namespace PresSoins
         public System.DateTime DATEPRESTATION { get; set; }
         public decimal IDDOSSIER { get; set; }
         public decimal IDINTERVENANT { get; set; }
+    
+        public virtual DOSSIER DOSSIER { get; set; }
+        public virtual INTERVENANT INTERVENANT { get; set; }
     }
 }

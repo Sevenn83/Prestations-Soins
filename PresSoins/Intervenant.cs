@@ -14,8 +14,18 @@ namespace PresSoins
     
     public partial class INTERVENANT
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public INTERVENANT()
+        {
+            this.PRESTATIONs = new HashSet<PRESTATION>();
+        }
+    
         public decimal ID { get; set; }
         public string NOM { get; set; }
         public string PRENOM { get; set; }
+    
+        public virtual INTERVENANTEXTERNE INTERVENANTEXTERNE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRESTATION> PRESTATIONs { get; set; }
     }
 }

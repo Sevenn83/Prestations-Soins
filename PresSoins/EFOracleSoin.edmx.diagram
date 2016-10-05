@@ -4,11 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4dae8d270de04067899e041185514284" Name="Diagram1">
-        <EntityTypeShape EntityType="OracleSoinModel.DOSSIER" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OracleSoinModel.INTERVENANT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OracleSoinModel.INTERVENANTEXTERNE" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OracleSoinModel.PRESTATION" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="c98bfd28de344f78b36902e7129ec975" Name="Diagram1">
+        <EntityTypeShape EntityType="OracleSoinModel.DOSSIER" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OracleSoinModel.INTERVENANT" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OracleSoinModel.INTERVENANTEXTERNE" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OracleSoinModel.PRESTATION" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OracleSoinModel.PRESTATION_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="OracleSoinModel.INTERVENANTEXTERNE_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="OracleSoinModel.PRESTATION_FK1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

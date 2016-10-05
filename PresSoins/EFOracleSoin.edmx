@@ -41,11 +41,59 @@
           <Property Name="IDDOSSIER" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="IDINTERVENANT" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
+        <Association Name="INTERVENANTEXTERNE_FK1">
+          <End Role="INTERVENANT" Type="Self.INTERVENANT" Multiplicity="1" />
+          <End Role="INTERVENANTEXTERNE" Type="Self.INTERVENANTEXTERNE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="INTERVENANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INTERVENANTEXTERNE">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRESTATION_FK1">
+          <End Role="INTERVENANT" Type="Self.INTERVENANT" Multiplicity="1" />
+          <End Role="PRESTATION" Type="Self.PRESTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INTERVENANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRESTATION">
+              <PropertyRef Name="IDINTERVENANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRESTATION_FK2">
+          <End Role="DOSSIER" Type="Self.DOSSIER" Multiplicity="1" />
+          <End Role="PRESTATION" Type="Self.PRESTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOSSIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRESTATION">
+              <PropertyRef Name="IDDOSSIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OracleSoinModelStoreContainer">
           <EntitySet Name="DOSSIER" EntityType="Self.DOSSIER" Schema="SALTELSOIN" store:Type="Tables" />
           <EntitySet Name="INTERVENANT" EntityType="Self.INTERVENANT" Schema="SALTELSOIN" store:Type="Tables" />
           <EntitySet Name="INTERVENANTEXTERNE" EntityType="Self.INTERVENANTEXTERNE" Schema="SALTELSOIN" store:Type="Tables" />
           <EntitySet Name="PRESTATION" EntityType="Self.PRESTATION" Schema="SALTELSOIN" store:Type="Tables" />
+          <AssociationSet Name="INTERVENANTEXTERNE_FK1" Association="Self.INTERVENANTEXTERNE_FK1">
+            <End Role="INTERVENANT" EntitySet="INTERVENANT" />
+            <End Role="INTERVENANTEXTERNE" EntitySet="INTERVENANTEXTERNE" />
+          </AssociationSet>
+          <AssociationSet Name="PRESTATION_FK1" Association="Self.PRESTATION_FK1">
+            <End Role="INTERVENANT" EntitySet="INTERVENANT" />
+            <End Role="PRESTATION" EntitySet="PRESTATION" />
+          </AssociationSet>
+          <AssociationSet Name="PRESTATION_FK2" Association="Self.PRESTATION_FK2">
+            <End Role="DOSSIER" EntitySet="DOSSIER" />
+            <End Role="PRESTATION" EntitySet="PRESTATION" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -60,6 +108,7 @@
           <Property Name="NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRENOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="PRESTATIONs" Relationship="Self.PRESTATION_FK2" FromRole="DOSSIER" ToRole="PRESTATION" />
         </EntityType>
         <EntityType Name="INTERVENANT">
           <Key>
@@ -68,6 +117,8 @@
           <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRENOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="INTERVENANTEXTERNE" Relationship="Self.INTERVENANTEXTERNE_FK1" FromRole="INTERVENANT" ToRole="INTERVENANTEXTERNE" />
+          <NavigationProperty Name="PRESTATIONs" Relationship="Self.PRESTATION_FK1" FromRole="INTERVENANT" ToRole="PRESTATION" />
         </EntityType>
         <EntityType Name="INTERVENANTEXTERNE">
           <Key>
@@ -77,6 +128,7 @@
           <Property Name="SPECIALITE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ADRESSE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="INTERVENANT" Relationship="Self.INTERVENANTEXTERNE_FK1" FromRole="INTERVENANTEXTERNE" ToRole="INTERVENANT" />
         </EntityType>
         <EntityType Name="PRESTATION">
           <Key>
@@ -87,12 +139,62 @@
           <Property Name="DATEPRESTATION" Type="DateTime" Nullable="false" />
           <Property Name="IDDOSSIER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="IDINTERVENANT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DOSSIER" Relationship="Self.PRESTATION_FK2" FromRole="PRESTATION" ToRole="DOSSIER" />
+          <NavigationProperty Name="INTERVENANT" Relationship="Self.PRESTATION_FK1" FromRole="PRESTATION" ToRole="INTERVENANT" />
         </EntityType>
+        <Association Name="PRESTATION_FK2">
+          <End Role="DOSSIER" Type="Self.DOSSIER" Multiplicity="1" />
+          <End Role="PRESTATION" Type="Self.PRESTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOSSIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRESTATION">
+              <PropertyRef Name="IDDOSSIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTERVENANTEXTERNE_FK1">
+          <End Role="INTERVENANT" Type="Self.INTERVENANT" Multiplicity="1" />
+          <End Role="INTERVENANTEXTERNE" Type="Self.INTERVENANTEXTERNE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="INTERVENANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INTERVENANTEXTERNE">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRESTATION_FK1">
+          <End Role="INTERVENANT" Type="Self.INTERVENANT" Multiplicity="1" />
+          <End Role="PRESTATION" Type="Self.PRESTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INTERVENANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRESTATION">
+              <PropertyRef Name="IDINTERVENANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OracleSoinEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DOSSIERs" EntityType="Self.DOSSIER" />
           <EntitySet Name="INTERVENANTs" EntityType="Self.INTERVENANT" />
           <EntitySet Name="INTERVENANTEXTERNEs" EntityType="Self.INTERVENANTEXTERNE" />
           <EntitySet Name="PRESTATIONs" EntityType="Self.PRESTATION" />
+          <AssociationSet Name="PRESTATION_FK2" Association="Self.PRESTATION_FK2">
+            <End Role="DOSSIER" EntitySet="DOSSIERs" />
+            <End Role="PRESTATION" EntitySet="PRESTATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="INTERVENANTEXTERNE_FK1" Association="Self.INTERVENANTEXTERNE_FK1">
+            <End Role="INTERVENANT" EntitySet="INTERVENANTs" />
+            <End Role="INTERVENANTEXTERNE" EntitySet="INTERVENANTEXTERNEs" />
+          </AssociationSet>
+          <AssociationSet Name="PRESTATION_FK1" Association="Self.PRESTATION_FK1">
+            <End Role="INTERVENANT" EntitySet="INTERVENANTs" />
+            <End Role="PRESTATION" EntitySet="PRESTATIONs" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>

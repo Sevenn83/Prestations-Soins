@@ -18,5 +18,7 @@ namespace PresSoins
         public string SPECIALITE { get; set; }
         public string ADRESSE { get; set; }
         public string TEL { get; set; }
+    
+        public virtual INTERVENANT INTERVENANT { get; set; }
     }
 }
