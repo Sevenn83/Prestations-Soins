@@ -17,3 +17,4 @@ C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj
 C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj\Debug\PresSoins.csproj.GenerateResource.Cache
 C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj\Debug\PresSoins.exe
 C:\Users\toto\Documents\cours\BTS\Pragramme\C#\Presentations-Soins\PresSoins\obj\Debug\PresSoins.pdb
+C:\Users\saltel.t\Documents\c#\Prestations-Soins\PresSoins\bin\Debug\PresSoins.exe.config
